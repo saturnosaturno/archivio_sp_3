@@ -134,16 +134,27 @@ public class ContattiDao {
         try{
            trans=session.beginTransaction(); 
             
-            List <Object> rdl = new ArrayList();
-            rdl=(Object) contatto.getRapportiDiLavoros().toArray();
+            Set rdl=contatto.getRapportiDiLavoros();
+            Object[] oggetti = rdl.toArray();
+            for (int i=0;i<oggetti.length;i++)
+            {
+                RapportiDiLavoro rapporto = (RapportiDiLavoro)oggetti[i];
             
             
-            Query query2=session.createQuery("UPDATE RapportiDiLavoro SET nome_azienda = :nome_azienda WHERE contatti_id = :id");
-            query2.setString("nome_azienda",);
-            query2.setInteger("id", contatto.getId());
+            
+            Query query2=session.createQuery("UPDATE RapportiDiLavoro SET nome_azienda = :nome_azienda, mansione = :mansione WHERE id = :id");
+            query2.setString("nome_azienda",rapporto.getNomeAzienda());
+            query2.setString("mansione",rapporto.getMansione());
+            query2.setInteger("id", rapporto.getId());
             int result2 = query2.executeUpdate();
             System.out.println("Rapporto di lavoro inserito: " + result2);
+            System.out.println("Rapporto di lavoro inserito: " + rapporto.getId());
+            System.out.println("Rapporto di lavoro inserito: " + rapporto.getNomeAzienda());
+            System.out.println("Rapporto di lavoro inserito: " + rapporto.getMansione());
+            
+            }
             trans.commit();
+            
         }
         catch (Exception e){
             System.out.println(e.toString());
@@ -223,10 +234,10 @@ public class ContattiDao {
             /*Query query=session.createQuery("INSERT INTO Contatti (nome, cognome) VALUES(nome,cognome)");             
            query.setString("nome", contatto.getNome()); 
            query.setString("cognome", contatto.getCognome());*/
-          session.save(contatto);
+            session.save(contatto);
          // int result = query.executeUpdate();
         //  System.out.println("Rows affected: " + result);
-          
+            session.getTransaction().commit();
             trans.commit();
             
         }

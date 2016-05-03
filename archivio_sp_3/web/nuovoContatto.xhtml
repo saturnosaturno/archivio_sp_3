@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
@@ -12,65 +13,63 @@
                
                 
                 <h:outputLabel  value="Nome:" />
-                <p:inputText value="#{nuovoContattoBean.nome}" />
+                <p:inputText value="#{nuovoContattoBean.contatto.nome}" />
                 
               
                 <h:outputLabel value="Cognome:" />
-                <p:inputText value="#{nuovoContattoBean.cognome}" />
+                <p:inputText value="#{nuovoContattoBean.contatto.setCognome}" />
                 
                 
           
                
                 <h:outputLabel  value="Comune di Residenza:" />
-                <p:inputText value="#{nuovoContattoBean.comuneDiResidenza}" />
+                <p:inputText value="#{nuovoContattoBean.contatto.comuneDiResidenza}" />
                 
                 
                 
                 <h:outputLabel for="indirizzo" value="Indirizzo:" />
-                  <p:inputText value="#{nuovoContattoBean.indirizzo}" />
+                  <p:inputText value="#{nuovoContattoBean.contatto.indirizzo}" />
                 
                 
                  <h:outputLabel for="cap" value="CAP: " />
-                    <p:inputText value="#{nuovoContattoBean.cap}" />
+                    <p:inputText value="#{nuovoContattoBean.contatto.cap}" />
                 
                 
                  <h:outputLabel for="provincia" value="Provincia: " />
-                     <p:inputText value="#{nuovoContattoBean.provincia}" />
+                 <p:inputText value="#{nuovoContattoBean.contatto.provincia}" />
              
                 
                   <h:outputLabel for="telefono" value="Telefono: " />
-                  <p:inputText value="#{nuovoContattoBean.telefono}" />
+                  <p:inputText value="#{nuovoContattoBean.contatto.telefono}" />
                 
                  
                  
-                    <h:outputLabel for="cellulare" value="cellulare"/>
-                     <p:inputText value="#{nuovoContattoBean.cellulare}" />
+                   <h:outputLabel for="cellulare" value="cellulare"/>
+                   <p:inputText value="#{nuovoContattoBean.contatto.cellulare}" />
                 
                   
                    <h:outputLabel for="email" value="Email: " />
-                   <p:inputText value="#{nuovoContattoBean.email}" />
+                   <p:inputText value="#{nuovoContattoBean.contatto.email}" />
                
-                    <h:outputLabel for="professione" value="Professione: " />
-                    <p:inputText value="#{nuovoContattoBean.professione}" />
+                   <h:outputLabel for="professione" value="Professione: " />
+                   <p:inputText value="#{nuovoContattoBean.contatto.professione}" />
                 
                     
-                     <h:outputLabel for="sede_di_servizio" value="Sede di servizio: " />  
-                     <p:inputText value="#{nuovoContattoBean.sedeDiServizio}" />
+                   <h:outputLabel for="sede_di_servizio" value="Sede di servizio: " />  
+                   <p:inputText value="#{nuovoContattoBean.contatto.sedeDiServizio}" />
                
-                      <h:outputLabel for="materia" value="Materia: " />
-                      <p:inputText value="#{nuovoContattoBean.materia}" />
+                      
+                   <h:outputLabel for="materia" value="Materia: " />
+                   <p:inputText value="#{nuovoContattoBean.contatto.materia}" />
                 
                   
-                       <h:outputLabel for="note" value="Note: " />
-                       <p:inputText value="#{nuovoContattoBean.note}" />
+                   <h:outputLabel for="note" value="Note: " />
+                   <p:inputText value="#{nuovoContattoBean.contatto.note}" />
                
                       
                         
                   
-                  <h:outputLabel for="typo_titoli_di_studio" value="Titolo di studio: " />
-                  <p:inputText value="#{nuovoContattoBean.typoTitoliDiStudio}" />
-                
-         
+                   
                   
             </h:panelGrid>  
             
