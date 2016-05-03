@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 28-apr-2016 11.09.41 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="studioproject.entity.Utenti" table="utenti" catalog="archivio_sp" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="nome" type="string">
+            <column name="nome" length="45" not-null="true" />
+        </property>
+        <property name="username" type="string">
+            <column name="username" length="45" not-null="true" unique="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="45" not-null="true" />
+        </property>
+        <set name="contattis" table="contatti" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="created_by" not-null="true" />
+            </key>
+            <one-to-many class="studioproject.entity.Contatti" />
+        </set>
+    </class>
+</hibernate-mapping>

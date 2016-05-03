@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 28-apr-2016 11.09.41 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="studioproject.entity.Contatti" table="contatti" catalog="archivio_sp" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="typoTitoliDiStudio" class="studioproject.entity.TypoTitoliDiStudio" fetch="select">
+            <column name="typo_titoli_di_studio_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="utenti" class="studioproject.entity.Utenti" fetch="select">
+            <column name="created_by" not-null="true" />
+        </many-to-one>
+        <property name="nome" type="string">
+            <column name="nome" length="45" not-null="true" />
+        </property>
+        <property name="cognome" type="string">
+            <column name="cognome" length="45" not-null="true" />
+        </property>
+        <property name="dataDiNascita" type="date">
+            <column name="data_di_nascita" length="10" />
+        </property>
+        <property name="comuneDiResidenza" type="string">
+            <column name="comune_di_residenza" length="45" />
+        </property>
+        <property name="indirizzo" type="string">
+            <column name="indirizzo" length="100" />
+        </property>
+        <property name="cap" type="string">
+            <column name="cap" length="5" />
+        </property>
+        <property name="provincia" type="string">
+            <column name="provincia" length="2" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="telefono" length="15" />
+        </property>
+        <property name="cellulare" type="string">
+            <column name="cellulare" length="15" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="45" />
+        </property>
+        <property name="professione" type="string">
+            <column name="professione" length="45" />
+        </property>
+        <property name="sedeDiServizio" type="string">
+            <column name="sede_di_servizio" length="45" />
+        </property>
+        <property name="materia" type="string">
+            <column name="materia" length="45" />
+        </property>
+        <property name="note" type="string">
+            <column name="note" length="1000" />
+        </property>
+        <set name="rapportiDiLavoros" table="rapporti_di_lavoro" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="contatti_id" not-null="true" />
+            </key>
+            <one-to-many class="studioproject.entity.RapportiDiLavoro" />
+        </set>
+    </class>
+</hibernate-mapping>

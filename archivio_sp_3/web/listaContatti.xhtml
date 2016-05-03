@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"> 
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h1 align="center">Lista dei contatti</h1>
+       
+        <h:form>
+            <h:outputText value="#{currentUserBean.nome}"/>
+            <p:dataTable value="#{listaContatti.getallrecords()}" var= "contatto1" >
+              <p:column headerText="Nome">
+                  <h:outputText value="#{contatto1.nome}" />
+               </p:column>
+ 
+              <p:column headerText="Cognome">
+                  <h:outputText value="#{contatto1.cognome}" />
+              </p:column>
+ 
+              <p:column headerText="Cellulare">
+                     <h:outputText value="#{contatto1.cellulare}" />
+              </p:column>
+ 
+              <p:column headerText="Email">
+                     <h:outputText value="#{contatto1.email}" />
+              </p:column>
+            
+              <p:column headerText="Azioni">
+                   <p:commandButton id="modifica" value="Modifica" action="#{listaContatti.editSelezionato(contatto1.id)}" />
+                   <p:commandButton id="cancella" value="Cancella" action="#{listaContatti.deleteSelezionato(contatto1.id)}" />
+              </p:column>
+                    
+        </p:dataTable>
+            <br/>
+             <p:commandButton id="nuovo" value="Aggiungi" action="#{listaContatti.inserisci()}" />
+            
+            </h:form>
+    </h:body>
+        
+</html>

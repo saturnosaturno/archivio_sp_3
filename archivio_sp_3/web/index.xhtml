@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"> 
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h1 align="center">Benvenuto</h1>
+        <h:form>
+            <h:outputLabel>Username: </h:outputLabel>
+        
+            <p:inputText id="username" value="#{indexBean.username}" required="true" requiredMessage="Username obbligatoria"></p:inputText>
+            <h:message for="username" /> 
+            <br />
+            <br />
+            <h:outputLabel>Password: </h:outputLabel>
+            <p:password id="password" value="#{indexBean.password}" required="true" requiredMessage=" Password obbligatoria"></p:password>
+            <h:message for="password" /> 
+            <br />
+            <br />
+            <p:commandButton id="lista_contatti" value="Login" action="#{indexBean.doLogin()}" />
+           
+              
+            </h:form>
+    </h:body>
+        
+</html>

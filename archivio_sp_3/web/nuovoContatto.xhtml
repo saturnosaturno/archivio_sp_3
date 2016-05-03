@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGrid columns="2" columnClasses="column" cellpadding="5">
+               
+                
+                <h:outputLabel  value="Nome:" />
+                <p:inputText value="#{nuovoContattoBean.nome}" />
+                
+              
+                <h:outputLabel value="Cognome:" />
+                <p:inputText value="#{nuovoContattoBean.cognome}" />
+                
+                
+          
+               
+                <h:outputLabel  value="Comune di Residenza:" />
+                <p:inputText value="#{nuovoContattoBean.comuneDiResidenza}" />
+                
+                
+                
+                <h:outputLabel for="indirizzo" value="Indirizzo:" />
+                  <p:inputText value="#{nuovoContattoBean.indirizzo}" />
+                
+                
+                 <h:outputLabel for="cap" value="CAP: " />
+                    <p:inputText value="#{nuovoContattoBean.cap}" />
+                
+                
+                 <h:outputLabel for="provincia" value="Provincia: " />
+                     <p:inputText value="#{nuovoContattoBean.provincia}" />
+             
+                
+                  <h:outputLabel for="telefono" value="Telefono: " />
+                  <p:inputText value="#{nuovoContattoBean.telefono}" />
+                
+                 
+                 
+                    <h:outputLabel for="cellulare" value="cellulare"/>
+                     <p:inputText value="#{nuovoContattoBean.cellulare}" />
+                
+                  
+                   <h:outputLabel for="email" value="Email: " />
+                   <p:inputText value="#{nuovoContattoBean.email}" />
+               
+                    <h:outputLabel for="professione" value="Professione: " />
+                    <p:inputText value="#{nuovoContattoBean.professione}" />
+                
+                    
+                     <h:outputLabel for="sede_di_servizio" value="Sede di servizio: " />  
+                     <p:inputText value="#{nuovoContattoBean.sedeDiServizio}" />
+               
+                      <h:outputLabel for="materia" value="Materia: " />
+                      <p:inputText value="#{nuovoContattoBean.materia}" />
+                
+                  
+                       <h:outputLabel for="note" value="Note: " />
+                       <p:inputText value="#{nuovoContattoBean.note}" />
+               
+                      
+                        
+                  
+                  <h:outputLabel for="typo_titoli_di_studio" value="Titolo di studio: " />
+                  <p:inputText value="#{nuovoContattoBean.typoTitoliDiStudio}" />
+                
+         
+                  
+            </h:panelGrid>  
+            
+         
+                 
+            <p:commandButton value="Annulla" action="ListaContatti"/>
+            <p:commandButton value="Salva" action="#{nuovoContattoBean.inserisciContatto()}"/>
+            <p:commandButton value="Torna Lista Contatti" action="listaContatti"/>
+            </h:form>
+
+    </h:body>
+</html>
