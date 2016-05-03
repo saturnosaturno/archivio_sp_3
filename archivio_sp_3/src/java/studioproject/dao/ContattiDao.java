@@ -134,9 +134,9 @@ public class ContattiDao {
         try{
            trans=session.beginTransaction(); 
             
-             List <Object> rdl = new ArrayList();
-             rdl=(Object) contatto.getRapportiDiLavoros().toArray();
-             
+            List <Object> rdl = new ArrayList();
+            rdl=(Object) contatto.getRapportiDiLavoros().toArray();
+            
             
             Query query2=session.createQuery("UPDATE RapportiDiLavoro SET nome_azienda = :nome_azienda WHERE contatti_id = :id");
             query2.setString("nome_azienda",);
