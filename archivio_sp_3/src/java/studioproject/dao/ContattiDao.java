@@ -15,6 +15,7 @@ import org.hibernate.Transaction;
 import studioproject.entity.Contatti;
 import studioproject.entity.RapportiDiLavoro;
 import studioproject.entity.TypoTitoliDiStudio;
+import studioproject.entity.Utenti;
 import studioproject.util.HibernateUtil;
 
 /**
@@ -223,34 +224,6 @@ public class ContattiDao {
    
      
      
-     public void insertContatto(Contatti contatto){
-        Transaction trans=null;
-        Session session=HibernateUtil.getSessionFactory().openSession();
-        
-        try
-        {
-            trans=session.beginTransaction();
-           
-            /*Query query=session.createQuery("INSERT INTO Contatti (nome, cognome) VALUES(nome,cognome)");             
-           query.setString("nome", contatto.getNome()); 
-           query.setString("cognome", contatto.getCognome());*/
-            session.save(contatto);
-         // int result = query.executeUpdate();
-        //  System.out.println("Rows affected: " + result);
-            session.getTransaction().commit();
-            trans.commit();
-            
-        }
-        catch(Exception e)
-        {
-            System.out.println(e.toString());
-        }
-        
-         
-         
-     }
-     
-     
      
      
      
@@ -278,6 +251,40 @@ public class ContattiDao {
     }
      
      
+     
+     public void insertContatto(Contatti contatto){
+        Transaction trans=null;
+        Session session=HibernateUtil.getSessionFactory().openSession();
+       
+        try
+        {
+            trans=session.beginTransaction();
+          
+            /*Query query=session.createQuery("INSERT INTO Contatti (nome, cognome, typo_titoli_di_studio_id) VALUES(nome,cognome,1)");            
+           query.setString("nome", contatto.getNome());
+           query.setString("cognome", contatto.getCognome());*/
+            TypoTitoliDiStudio ttd = new TypoTitoliDiStudio();
+            ttd.setId(1);
+            contatto.setTypoTitoliDiStudio(ttd);
+            Utenti ut = new Utenti();
+            ut.setId(1);
+            contatto.setUtenti(ut);
+            session.save(contatto);
+         // int result = query.executeUpdate();
+        //  System.out.println("Rows affected: " + result);
+            session.getTransaction().commit();
+           // trans.commit();
+           
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.toString());
+        }
+       
+         
+         
+     }
+ 
      
     
 }

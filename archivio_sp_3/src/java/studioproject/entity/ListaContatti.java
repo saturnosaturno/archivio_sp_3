@@ -21,7 +21,10 @@ public class ListaContatti implements java.io.Serializable {
 
    @ManagedProperty("#{dettaglioContatto}")
    private DettaglioContatto dettaglioContatto;
-     
+    
+   @ManagedProperty("#{currentUserBean}")
+   private CurrentUserBean currentUserBean; 
+   
 
     public ListaContatti() {
     }
@@ -33,6 +36,16 @@ public class ListaContatti implements java.io.Serializable {
     public void setDettaglioContatto(DettaglioContatto dettaglioContatto) {
         this.dettaglioContatto = dettaglioContatto;
     }
+
+    public CurrentUserBean getCurrentUserBean() {
+        return currentUserBean;
+    }
+
+    public void setCurrentUserBean(CurrentUserBean currentUserBean) {
+        this.currentUserBean = currentUserBean;
+    }
+
+  
 
     
 
@@ -54,7 +67,7 @@ public class ListaContatti implements java.io.Serializable {
     }
     
 public String deleteSelezionato (int id){
-        
+       
        ContattiDao cdao=new ContattiDao();
         cdao.cancellaContatto(id);
         

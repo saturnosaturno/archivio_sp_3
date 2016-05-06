@@ -92,13 +92,13 @@ public class Contatti implements java.io.Serializable {
         this.utenti = utenti;
     }
     public String getNome() {
-         System.out.println("Sono nel Set nome");
+        
         return this.nome;
              }
     
     public void setNome(String nome) {
         this.nome = nome;
-        System.out.println("Sono nel Set nome");
+        
     }
     public String getCognome() {
         return this.cognome;
@@ -200,7 +200,15 @@ public class Contatti implements java.io.Serializable {
         this.rapportiDiLavoros = rapportiDiLavoros;
     }
     
-    
+   public String inserisciNuovoRapporto(){
+          RapportiDiLavoro rapp = new RapportiDiLavoro();
+          rapp.setMansione("----");
+          rapp.setNomeAzienda("----");
+          
+          this.rapportiDiLavoros.add(rapp);
+          System.out.println("ho aggiunto un nuovo rapporto di lavoro");
+          return "listaContatti";
+      }  
     
 
 }

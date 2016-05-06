@@ -17,9 +17,10 @@
                 
               
                 <h:outputLabel value="Cognome:" />
-                <p:inputText value="#{nuovoContattoBean.contatto.setCognome}" />
+                <p:inputText value="#{nuovoContattoBean.contatto.cognome}" />
                 
-                
+                 <h:outputLabel value="Data di Nascita:" />
+                  <p:calendar id="popup" value="#{nuovoContattoBean.contatto.dataDiNascita}" />
           
                
                 <h:outputLabel  value="Comune di Residenza:" />
@@ -66,7 +67,10 @@
                    <h:outputLabel for="note" value="Note: " />
                    <p:inputText value="#{nuovoContattoBean.contatto.note}" />
                
-                      
+                   <h:outputLabel for="typo_titoli_di_studio" value="Titolo di studio: " />
+                   <p:selectOneMenu id="typo_titoli_di_studio"  value="3" >
+                  <f:selectItems value="#{nuovoContattoBean.allTitoli}" var="titolod" itemLabel="#{titolod.titolo}" itemValue="#{titolod.id}"  />
+               </p:selectOneMenu>  
                         
                   
                    

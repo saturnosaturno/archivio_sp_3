@@ -9,9 +9,9 @@
     </h:head>
     <h:body>
         <h1 align="center">Lista dei contatti</h1>
-       
+        <h:outputText value="#{listaContatti.currentUserBean.nome}" />
         <h:form>
-            <h:outputText value="#{currentUserBean.nome}"/>
+            
             <p:dataTable value="#{listaContatti.getallrecords()}" var= "contatto1" >
               <p:column headerText="Nome">
                   <h:outputText value="#{contatto1.nome}" />

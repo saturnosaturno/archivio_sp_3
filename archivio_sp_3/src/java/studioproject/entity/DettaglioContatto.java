@@ -36,7 +36,20 @@ public class DettaglioContatto implements Serializable{
     public String aggiornaContatto (){
         ContattiDao contdao = new ContattiDao();
         contdao.updateContatto(contatto);
+        System.out.println("Ho aggiornato il contatto nuovo");
+        
         return "listaContatti";
+    }
+    
+    
+     public String aggiornaContatto2 (){
+        ContattiDao contdao = new ContattiDao();
+        RapportiDiLavoro rapp = new RapportiDiLavoro();
+        rapp.setMansione("----");
+        rapp.setNomeAzienda("----");
+        contatto.getRapportiDiLavoros().add(rapp);
+        contdao.updateContatto(contatto);
+        return "nuovoRapporto";
     }
     
     
@@ -55,6 +68,10 @@ public class DettaglioContatto implements Serializable{
             List <TypoTitoliDiStudio> titoli = cdao.retrieveTitoliDiStudio(contatto);
          
           return titoli;
+          
       }
+      
+      
+     
     
 }

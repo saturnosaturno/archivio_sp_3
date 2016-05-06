@@ -50,6 +50,7 @@ public class IndexBean implements Serializable {
             CurrentUserBean utenteBean= new CurrentUserBean(username,password,true);
             FacesContext context = FacesContext.getCurrentInstance();
             context.getExternalContext().getSessionMap().put("utenteBean", utenteBean);
+            System.out.println("Utente in sessione: "+ utenteBean.nome + " " + utenteBean.username);
             return "listaContatti";
         }
     return "index";
