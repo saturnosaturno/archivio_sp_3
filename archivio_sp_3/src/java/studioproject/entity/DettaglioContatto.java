@@ -41,15 +41,24 @@ public class DettaglioContatto implements Serializable{
         return "listaContatti";
     }
     
-    
+    /*
      public String aggiornaContatto2 (){
         ContattiDao contdao = new ContattiDao();
-        RapportiDiLavoro rapp = new RapportiDiLavoro();
-        rapp.setMansione("----");
-        rapp.setNomeAzienda("----");
-        contatto.getRapportiDiLavoros().add(rapp);
-        contdao.updateContatto(contatto);
+     //   RapportiDiLavoro rapp = new RapportiDiLavoro();
+      //  rapp.setMansione("----");
+       // rapp.setNomeAzienda("----");
+       // contatto.getRapportiDiLavoros().add(rapp);
+        contdao.updateContatto2(contatto);
         return "nuovoRapporto";
+    }
+    
+    */
+    
+    
+    public void inserisciRapporto(){
+        ContattiDao contdao = new ContattiDao();
+        contdao.inserisciRapportoProvvisorio(contatto);
+        System.out.println("rapporto provvisiorio inserito");
     }
     
     
