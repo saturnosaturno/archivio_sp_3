@@ -308,6 +308,7 @@ public class ContattiDao {
            System.out.println(e.toString());
         }
         
+        
     }
     
      public List<RapportiDiLavoro> retrieveRapportiDiLavoro(Contatti contatto)

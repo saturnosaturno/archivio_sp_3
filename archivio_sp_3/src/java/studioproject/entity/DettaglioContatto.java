@@ -55,10 +55,12 @@ public class DettaglioContatto implements Serializable{
     */
     
     
-    public void inserisciRapporto(){
+    public String inserisciRapporto(){
+        
         ContattiDao contdao = new ContattiDao();
         contdao.inserisciRapportoProvvisorio(contatto);
-        System.out.println("rapporto provvisiorio inserito");
+        System.out.println("rapporto provvisiorio inserito, ora ve ne sono: "+ contatto.getRapportiDiLavoros().size());
+        return "nuovoRapporto";
     }
     
     

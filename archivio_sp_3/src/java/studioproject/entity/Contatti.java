@@ -210,5 +210,9 @@ public class Contatti implements java.io.Serializable {
           return "listaContatti";
       }  
     
+   
+  
+   
+   
 
 }
