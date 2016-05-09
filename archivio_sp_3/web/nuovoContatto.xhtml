@@ -68,10 +68,10 @@
                    <p:inputText value="#{nuovoContattoBean.contatto.note}" />
                
                    <h:outputLabel for="typo_titoli_di_studio" value="Titolo di studio: " />
-                   <p:selectOneMenu id="typo_titoli_di_studio"  value="3" >
+                 <p:selectOneMenu id="typo_titoli_di_studio"  value="#{nuovoContattoBean.contatto.typoTitoliDiStudio.id}" >
                   <f:selectItems value="#{nuovoContattoBean.allTitoli}" var="titolod" itemLabel="#{titolod.titolo}" itemValue="#{titolod.id}"  />
-               </p:selectOneMenu>  
-                        
+                  
+               </p:selectOneMenu> 
                   
                    
                   

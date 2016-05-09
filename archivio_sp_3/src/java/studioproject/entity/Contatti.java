@@ -41,7 +41,12 @@ public class Contatti implements java.io.Serializable {
      private Set rapportiDiLavoros = new HashSet(0);
 
     public Contatti() {
-    }
+        
+        typoTitoliDiStudio = new TypoTitoliDiStudio();
+        
+        
+                
+                }
 
  
     public Contatti(TypoTitoliDiStudio typoTitoliDiStudio, Utenti utenti, String nome, String cognome) {

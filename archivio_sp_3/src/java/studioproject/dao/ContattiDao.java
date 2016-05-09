@@ -405,9 +405,9 @@ public class ContattiDao {
             /*Query query=session.createQuery("INSERT INTO Contatti (nome, cognome, typo_titoli_di_studio_id) VALUES(nome,cognome,1)");            
            query.setString("nome", contatto.getNome());
            query.setString("cognome", contatto.getCognome());*/
-            TypoTitoliDiStudio ttd = new TypoTitoliDiStudio();
-            ttd.setId(1);
-            contatto.setTypoTitoliDiStudio(ttd);
+            //TypoTitoliDiStudio ttd = new TypoTitoliDiStudio();
+            //ttd.setId(1);
+           // contatto.setTypoTitoliDiStudio(ttd);
             Utenti ut = new Utenti();
             ut.setId(1);
             contatto.setUtenti(ut);

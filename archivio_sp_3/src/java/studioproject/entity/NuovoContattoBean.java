@@ -53,7 +53,8 @@ public class NuovoContattoBean implements Serializable {
         //Utenti u= new Utenti ();
         //u.setId(1);
         //contatto.setUtenti(u);
-       
+        System.out.println(contatto.getTypoTitoliDiStudio().getId());
+        System.out.println(contatto.getTypoTitoliDiStudio().getTitolo());
         cdao.insertContatto(contatto);
         FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("nuovoContattoBean", null);
        
