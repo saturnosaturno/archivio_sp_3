@@ -10,7 +10,7 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        <h:form>
+        <h:form id="details">
             <h:panelGrid columns="2" columnClasses="column" cellpadding="5">
                 <h:outputLabel for="nome" value="Nome:" />
                 <p:inplace id="nome">
@@ -98,7 +98,8 @@
                 <br/>
                 <br/>
                    </h:panelGrid> 
-         <p:dataTable var="rapporto" value="#{dettaglioContatto.contatto.rapportiDiLavoros}">
+
+         <p:dataTable id="rapportidl" var="rapporto" value="#{dettaglioContatto.contatto.rapportiDiLavoros}">
                     <p:column headerText="Azienda" >
 
                         <p:inplace id="azienda">
@@ -114,12 +115,11 @@
                     </p:column>
              
              <p:column headerText="Azioni">
-                 <p:commandButton id="cancella" value="Cancella" action="#{dettaglioContatto.deleteRapportoSelezionato(rapporto.id)}" />
+                 <p:commandButton id="cancella" value="Cancella" action="#{dettaglioContatto.deleteRapportoSelezionato(rapporto.id)}" update=":details" />
               
              </p:column>
 
                 </p:dataTable>
-            
             <p:commandButton value="Inserisci Rapporto di lavoro" action="#{dettaglioContatto.inserisciRapporto()}"/>
             
             

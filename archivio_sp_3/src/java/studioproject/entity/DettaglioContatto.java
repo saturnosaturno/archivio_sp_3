@@ -46,8 +46,8 @@ public class DettaglioContatto implements Serializable{
        
        ContattiDao cdao=new ContattiDao();
         cdao.cancellaRapporto(id);
-        
-        return "listaContatti";
+        contatto=cdao.getContatto(contatto.getId());
+        return "dettaglioContatto";
     }
     
     
