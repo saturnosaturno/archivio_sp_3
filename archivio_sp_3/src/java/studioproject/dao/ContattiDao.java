@@ -297,8 +297,8 @@ public class ContattiDao {
         //rdl.getContatti().getRapportiDiLavoros().add(rdl);
         rdl.setContatti(contatto);
         contatto.getRapportiDiLavoros().add(rdl);
-        //session.save(rdl);
-          session.save(contatto);
+        session.save(rdl);
+         // session.save(contatto);
         System.out.println("Save effettuato");
         session.getTransaction().commit();
         
