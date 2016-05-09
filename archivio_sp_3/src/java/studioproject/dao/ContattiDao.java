@@ -332,6 +332,9 @@ public class ContattiDao {
         
          try{
            trans=session.beginTransaction();
+            Utenti ut = new Utenti();
+            ut.setId(1);
+            contatto.setUtenti(ut);
             session.save(contatto);
             session.getTransaction().commit();
        }

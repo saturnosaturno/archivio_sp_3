@@ -81,5 +81,14 @@ public class NuovoContattoBean implements Serializable {
           return titoli;
       }
     
+      
+      
+      public String aggiornaContatto (){
+        ContattiDao contdao = new ContattiDao();
+        contdao.updateContatto(contatto);
+        System.out.println("Ho aggiornato il contatto nuovo");
+        
+        return "dettaglioContatto";
+    }
     
 }
