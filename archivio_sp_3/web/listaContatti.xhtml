@@ -10,7 +10,7 @@
     <h:body>
         <h1 align="center">Lista dei contatti</h1>
         <h:outputText value="#{listaContatti.currentUserBean.nome}" />
-        <h:form>
+        <h:form id="listaForm">
             
             <p:dataTable value="#{listaContatti.getallrecords()}" var= "contatto1" >
               <p:column headerText="Nome">
@@ -31,7 +31,7 @@
             
               <p:column headerText="Azioni">
                    <p:commandButton id="modifica" value="Modifica" action="#{listaContatti.editSelezionato(contatto1.id)}" />
-                   <p:commandButton id="cancella" value="Cancella" action="#{listaContatti.deleteSelezionato(contatto1.id)}" />
+                   <p:commandButton id="cancella" value="Cancella" action="#{listaContatti.deleteSelezionato(contatto1.id)}" update=":listaForm"  />
               </p:column>
                     
         </p:dataTable>
