@@ -112,6 +112,11 @@
                         <p:inputText value="#{rapporto.mansione}" />
                         </p:inplace>
                     </p:column>
+             
+             <p:column headerText="Azioni">
+                 <p:commandButton id="cancella" value="Cancella" action="#{dettaglioContatto.deleteRapportoSelezionato(rapporto.id)}" />
+              
+             </p:column>
 
                 </p:dataTable>
             

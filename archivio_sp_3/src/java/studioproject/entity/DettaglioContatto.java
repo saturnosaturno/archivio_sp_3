@@ -41,6 +41,16 @@ public class DettaglioContatto implements Serializable{
         return "dettaglioContatto";
     }
     
+    
+    public String deleteRapportoSelezionato (int id){
+       
+       ContattiDao cdao=new ContattiDao();
+        cdao.cancellaRapporto(id);
+        
+        return "listaContatti";
+    }
+    
+    
     /*
      public String aggiornaContatto2 (){
         ContattiDao contdao = new ContattiDao();

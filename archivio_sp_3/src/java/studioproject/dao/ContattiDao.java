@@ -436,6 +436,32 @@ public class ContattiDao {
      
    
      
+          public void cancellaRapporto(int id){
+        Transaction trans=null;
+        Session session=HibernateUtil.getSessionFactory().openSession();
+        
+        try
+        {
+            trans=session.beginTransaction();
+           
+            Query query=session.createQuery("DELETE from RapportiDiLavoro WHERE id = :id");             
+          
+           query.setInteger("id",id);
+            
+          int result = query.executeUpdate();
+          System.out.println("Rows affected: " + result);
+          
+            trans.commit();
+            
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.toString());
+        }
+        
+         
+         
+     }
      
      
      

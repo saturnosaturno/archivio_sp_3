@@ -56,7 +56,7 @@
         <property name="note" type="string">
             <column name="note" length="1000" />
         </property>
-        <set name="rapportiDiLavoros" table="rapporti_di_lavoro" inverse="true" lazy="true" fetch="select">
+        <set name="rapportiDiLavoros" cascade="delete" table="rapporti_di_lavoro" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="contatti_id" not-null="true" />
             </key>
