@@ -78,6 +78,28 @@
             </h:panelGrid>  
             
          
+            
+            
+            <p:dataTable var="rapporto" value="#{nuovoContattoBean.contatto.rapportiDiLavoros}">
+                    <p:column headerText="Azienda" >
+
+                        <p:inplace id="azienda">
+                            <p:inputText value="#{rapporto.nomeAzienda}" />
+                        </p:inplace>
+
+                    </p:column>
+
+                    <p:column headerText="Mansione">
+                        <p:inplace id="mansione">
+                        <p:inputText value="#{rapporto.mansione}" />
+                        </p:inplace>
+                    </p:column>
+
+                </p:dataTable>
+            
+            <p:commandButton value="Inserisci Rapporto di lavoro" action="#{nuovoContattoBean.inserisciRapportoNuovoContatto()}"/>
+            
+            
                  
             <p:commandButton value="Annulla" action="ListaContatti"/>
             <p:commandButton value="Salva" action="#{nuovoContattoBean.inserisciContatto()}"/>

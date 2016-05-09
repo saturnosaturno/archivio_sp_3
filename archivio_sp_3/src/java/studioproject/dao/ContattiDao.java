@@ -298,7 +298,7 @@ public class ContattiDao {
         rdl.setContatti(contatto);
         contatto.getRapportiDiLavoros().add(rdl);
         session.save(rdl);
-         // session.save(contatto);
+       // session.save(contatto);
         System.out.println("Save effettuato");
         session.getTransaction().commit();
         
@@ -309,7 +309,75 @@ public class ContattiDao {
        }
         
         
+       
+       try{
+           trans=session.beginTransaction();
+            session.save(contatto);
+            session.getTransaction().commit();
+       }
+       catch (Exception e){
+        System.out.println(e.toString());
+       }
+       
+       
     }
+    
+    
+    
+    
+    public void inserisciRapportoNuovoContatto(Contatti contatto){
+        
+        Transaction trans=null;
+        Session session=HibernateUtil.getSessionFactory().openSession();
+        
+         try{
+           trans=session.beginTransaction();
+            session.save(contatto);
+            session.getTransaction().commit();
+       }
+       catch (Exception e){
+        System.out.println(e.toString());
+       }
+        
+        
+       try{
+        trans=session.beginTransaction();
+        RapportiDiLavoro rdl = new RapportiDiLavoro();
+        rdl.setMansione("---");
+        rdl.setNomeAzienda("---");
+        //rdl.getContatti().getRapportiDiLavoros().add(rdl);
+        rdl.setContatti(contatto);
+        contatto.getRapportiDiLavoros().add(rdl);
+        session.save(rdl);
+       // session.save(contatto);
+        System.out.println("Save effettuato");
+        session.getTransaction().commit();
+        
+        
+      }
+        catch (Exception e){
+           System.out.println(e.toString());
+       }
+        
+        
+       
+      
+       
+       
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
      public List<RapportiDiLavoro> retrieveRapportiDiLavoro(Contatti contatto)
     {
@@ -402,12 +470,6 @@ public class ContattiDao {
         {
             trans=session.beginTransaction();
           
-            /*Query query=session.createQuery("INSERT INTO Contatti (nome, cognome, typo_titoli_di_studio_id) VALUES(nome,cognome,1)");            
-           query.setString("nome", contatto.getNome());
-           query.setString("cognome", contatto.getCognome());*/
-            //TypoTitoliDiStudio ttd = new TypoTitoliDiStudio();
-            //ttd.setId(1);
-           // contatto.setTypoTitoliDiStudio(ttd);
             Utenti ut = new Utenti();
             ut.setId(1);
             contatto.setUtenti(ut);
