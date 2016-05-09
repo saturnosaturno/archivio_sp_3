@@ -289,24 +289,24 @@ public class ContattiDao {
         Transaction trans=null;
         Session session=HibernateUtil.getSessionFactory().openSession();
         
-        try{
+       try{
         trans=session.beginTransaction();
         RapportiDiLavoro rdl = new RapportiDiLavoro();
         rdl.setMansione("---");
         rdl.setNomeAzienda("---");
         //rdl.getContatti().getRapportiDiLavoros().add(rdl);
         rdl.setContatti(contatto);
-        
-        session.save(rdl);
-   
+        contatto.getRapportiDiLavoros().add(rdl);
+        //session.save(rdl);
+          session.save(contatto);
         System.out.println("Save effettuato");
         session.getTransaction().commit();
         
         
-        }
+      }
         catch (Exception e){
            System.out.println(e.toString());
-        }
+       }
         
         
     }
