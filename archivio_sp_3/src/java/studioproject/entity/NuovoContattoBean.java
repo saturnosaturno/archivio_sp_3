@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import studioproject.dao.ContattiDao;
@@ -25,6 +26,9 @@ public class NuovoContattoBean implements Serializable {
     
      
      private Contatti contatto;
+     
+   @ManagedProperty("#{dettaglioContatto}")
+   private DettaglioContatto dettaglioContatto;
 
     public NuovoContattoBean() {
       
@@ -87,8 +91,19 @@ public class NuovoContattoBean implements Serializable {
         ContattiDao contdao = new ContattiDao();
         contdao.updateContatto(contatto);
         System.out.println("Ho aggiornato il contatto nuovo");
-        
+        dettaglioContatto.setContatto(contatto);
         return "dettaglioContatto";
     }
+
+    public DettaglioContatto getDettaglioContatto() {
+        return dettaglioContatto;
+    }
+
+    public void setDettaglioContatto(DettaglioContatto dettaglioContatto) {
+        this.dettaglioContatto = dettaglioContatto;
+    }
+      
+      
+      
     
 }

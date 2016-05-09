@@ -38,7 +38,7 @@ public class DettaglioContatto implements Serializable{
         contdao.updateContatto(contatto);
         System.out.println("Ho aggiornato il contatto nuovo");
         
-        return "listaContatti";
+        return "dettaglioContatto";
     }
     
     /*
