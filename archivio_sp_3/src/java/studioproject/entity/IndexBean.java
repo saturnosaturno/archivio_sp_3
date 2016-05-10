@@ -7,6 +7,7 @@ package studioproject.entity;
 
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import studioproject.dao.UtentiDao;
@@ -22,6 +23,9 @@ public class IndexBean implements Serializable {
     
     String username;
     String password;
+    
+    @ManagedProperty("#{listaContatti}")
+    private ListaContatti listaContatti; 
 
     public IndexBean() {
     }
@@ -51,9 +55,21 @@ public class IndexBean implements Serializable {
             FacesContext context = FacesContext.getCurrentInstance();
             context.getExternalContext().getSessionMap().put("utenteBean", utenteBean);
             System.out.println("Utente in sessione: "+ utenteBean.nome + " " + utenteBean.username);
+            listaContatti.setCurrentUserBean(utenteBean);
             return "listaContatti";
         }
     return "index";
 }
 
+    public ListaContatti getListaContatti() {
+        return listaContatti;
+    }
+
+    public void setListaContatti(ListaContatti listaContatti) {
+        this.listaContatti = listaContatti;
+    }
+
+     
+     
+     
 }

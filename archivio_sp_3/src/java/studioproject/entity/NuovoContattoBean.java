@@ -94,6 +94,14 @@ public class NuovoContattoBean implements Serializable {
         dettaglioContatto.setContatto(contatto);
         return "dettaglioContatto";
     }
+      
+      
+          public String tornaIndietro (){
+        
+        return "dettaglioContatto";
+    }
+
+      
 
     public DettaglioContatto getDettaglioContatto() {
         return dettaglioContatto;

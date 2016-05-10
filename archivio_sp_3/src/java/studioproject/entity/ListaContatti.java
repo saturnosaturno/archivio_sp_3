@@ -25,6 +25,8 @@ public class ListaContatti implements java.io.Serializable {
    @ManagedProperty("#{currentUserBean}")
    private CurrentUserBean currentUserBean; 
    
+   CurrentUserBean usercorrente;
+   
 
     public ListaContatti() {
     }
@@ -72,6 +74,14 @@ public String deleteSelezionato (int id){
         cdao.cancellaContatto(id);
         
         return "listaContatti";
+    }
+
+    public CurrentUserBean getUsercorrente() {
+        return usercorrente;
+    }
+
+    public void setUsercorrente(CurrentUserBean usercorrente) {
+        this.usercorrente = usercorrente;
     }
 
 

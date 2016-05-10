@@ -13,12 +13,13 @@
             <h:outputLabel>Username: </h:outputLabel>
         
             <p:inputText id="username" value="#{indexBean.username}" required="true" requiredMessage="Username obbligatoria"></p:inputText>
-            <h:message for="username" /> 
+            <p:message for="username" /> 
             <br />
             <br />
             <h:outputLabel>Password: </h:outputLabel>
             <p:password id="password" value="#{indexBean.password}" required="true" requiredMessage=" Password obbligatoria"></p:password>
-            <h:message for="password" /> 
+            <p:message for="password" /> 
+            
             <br />
             <br />
             <p:commandButton id="lista_contatti" value="Login" action="#{indexBean.doLogin()}" />
