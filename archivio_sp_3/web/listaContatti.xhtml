@@ -5,14 +5,31 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core"> 
     <h:head>
-        <title>Facelet Title</title>
+        <title>Lista dei contatti</title>
     </h:head>
     <h:body>
         <h1 align="center">Lista dei contatti</h1>
+        
         <h:outputText value="#{listaContatti.usercorrente.nome}" />
         <h:form id="listaForm">
-            
-            <p:dataTable value="#{listaContatti.getallrecords()}" var= "contatto1" >
+            <p align="right">
+         <h:commandLink>
+        <p:graphicImage name="/images/excel.png" />
+        <p:dataExporter type="xls" target="tbl" fileName="contatti" pageOnly="true"/>
+    </h:commandLink>
+ 
+    <h:commandLink>
+        <p:graphicImage name="/images/pdf.png" />
+        <p:dataExporter type="pdf" target="tbl" fileName="contatti" pageOnly="true" />
+    </h:commandLink>
+            </p>
+            <p:dataTable value="#{listaContatti.getallrecords()}" var= "contatto1" 
+                         id="tbl" 
+                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+                 paginator="true" rows="10" style="margin-bottom:20px">
+                
+                
+                
                 <p:column filterBy="#{contatto1.nome}" headerText="Nome" filterMatchMode="contains" >
                   <h:outputText value="#{contatto1.nome}" />
                </p:column>
@@ -29,7 +46,7 @@
                      <h:outputText value="#{contatto1.email}" />
               </p:column>
             
-              <p:column headerText="Azioni">
+              <p:column headerText="Azioni" exportable="false">
                    <p:commandButton id="modifica" value="Modifica" action="#{listaContatti.editSelezionato(contatto1.id)}" />
                    <p:commandButton id="cancella" value="Cancella" action="#{listaContatti.deleteSelezionato(contatto1.id)}" update=":listaForm"  />
               </p:column>
@@ -38,6 +55,8 @@
             <br/>
              <p:commandButton id="nuovo" value="Aggiungi" action="#{listaContatti.inserisci()}" />
             
+            
+             
             </h:form>
     </h:body>
         
