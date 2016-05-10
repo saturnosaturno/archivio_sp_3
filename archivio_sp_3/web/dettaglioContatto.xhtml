@@ -29,12 +29,12 @@
             <h:panelGrid columns="2" columnClasses="column" cellpadding="5">
                 <h:outputLabel for="nome" value="Nome:" />
                 <p:inplace id="nome">
-                    <p:inputText value="#{dettaglioContatto.contatto.nome}" />
+                    <p:inputText value="#{dettaglioContatto.contatto.nome}" required="true" />
                 </p:inplace>
                 
                 <h:outputLabel for="cognome" value="Cognome:" />
                 <p:inplace id="cognome">
-                    <p:inputText value="#{dettaglioContatto.contatto.cognome}" />
+                    <p:inputText value="#{dettaglioContatto.contatto.cognome}" required="true" />
                 </p:inplace>
                 
                <h:outputLabel for="popup" value="Data di Nascita:" />
@@ -135,14 +135,14 @@
              </p:column>
 
                 </p:dataTable>
-            <p:commandButton value="Inserisci Rapporto di lavoro" action="#{dettaglioContatto.inserisciRapporto()}"/>
+            <p:commandButton value="Inserisci Rapporto di lavoro" action="#{dettaglioContatto.inserisciRapporto()}" update=":details" />
             
           
             
                
            
             <p:commandButton value="Salva" onclick="PF('dlg1').show();" action="#{dettaglioContatto.aggiornaContatto()}" />
-            <p:commandButton immediate="true" value="Torna Lista Contatti" action="listaContatti"/>
+            <p:commandButton immediate="true" value="Annulla" action="listaContatti"/>
            
      
         

@@ -72,7 +72,7 @@ public class NuovoContattoBean implements Serializable {
         ContattiDao contdao = new ContattiDao();
         contdao.inserisciRapportoNuovoContatto(contatto);
         System.out.println("Inserito rapporto al nuovo contatto, ora ve ne sono: "+ contatto.getRapportiDiLavoros().size());
-        return "nuovoRapporto_1";
+        return "nuovoContatto";
     }
     
     

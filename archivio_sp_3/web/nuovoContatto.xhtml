@@ -8,16 +8,16 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        <h:form>
+        <h:form id="details">
             <h:panelGrid columns="2" columnClasses="column" cellpadding="5">
                
                 
                 <h:outputLabel  value="Nome:" />
-                <p:inputText value="#{nuovoContattoBean.contatto.nome}" />
+                <p:inputText value="#{nuovoContattoBean.contatto.nome}" required="true" />
                 
               
                 <h:outputLabel value="Cognome:" />
-                <p:inputText value="#{nuovoContattoBean.contatto.cognome}" />
+                <p:inputText value="#{nuovoContattoBean.contatto.cognome}" required="true" />
                 
                  <h:outputLabel value="Data di Nascita:" />
                   <p:calendar id="popup" value="#{nuovoContattoBean.contatto.dataDiNascita}" />
@@ -97,13 +97,12 @@
 
                 </p:dataTable>
             
-            <p:commandButton value="Inserisci Rapporto di lavoro" action="#{nuovoContattoBean.inserisciRapportoNuovoContatto()}"/>
+            <p:commandButton value="Inserisci Rapporto di lavoro" action="#{nuovoContattoBean.inserisciRapportoNuovoContatto()}" update=":details" />
             
             
                  
-            <p:commandButton value="Annulla" action="ListaContatti"/>
+            <p:commandButton value="Annulla" action="ListaContatti" immediate="true" />
             <p:commandButton value="Salva" action="#{nuovoContattoBean.inserisciContatto()}"/>
-            <p:commandButton value="Torna Lista Contatti" action="listaContatti"/>
             </h:form>
 
     </h:body>

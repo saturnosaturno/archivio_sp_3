@@ -40,7 +40,7 @@ public class DettaglioContatto implements Serializable{
         contdao.updateContatto(contatto);
         System.out.println("Ho aggiornato il contatto nuovo");
         
-        return "dettaglioContatto";
+        return "listaContatti";
     }
     
     
@@ -72,7 +72,7 @@ public class DettaglioContatto implements Serializable{
         ContattiDao contdao = new ContattiDao();
         contdao.inserisciRapportoProvvisorio(contatto);
         System.out.println("rapporto provvisiorio inserito, ora ve ne sono: "+ contatto.getRapportiDiLavoros().size());
-        return "nuovoRapporto";
+        return "dettagliContatto";
     }
     
     
