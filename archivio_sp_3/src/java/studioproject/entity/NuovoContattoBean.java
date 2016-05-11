@@ -111,7 +111,13 @@ public class NuovoContattoBean implements Serializable {
         this.dettaglioContatto = dettaglioContatto;
     }
       
-      
+      public String deleteRapportoSelezionato (int id){
+       
+       ContattiDao cdao=new ContattiDao();
+        cdao.cancellaRapporto(id);
+        contatto=cdao.getContatto(contatto.getId());
+        return "dettaglioContatto";
+    }  
       
     
 }

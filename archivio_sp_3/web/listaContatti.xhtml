@@ -15,12 +15,12 @@
             <p align="right">
          <h:commandLink>
         <p:graphicImage name="/images/excel.png" />
-        <p:dataExporter type="xls" target="tbl" fileName="contatti" pageOnly="true"/>
+        <p:dataExporter type="xls" target="tbl" fileName="contatti" />
     </h:commandLink>
  
     <h:commandLink>
         <p:graphicImage name="/images/pdf.png" />
-        <p:dataExporter type="pdf" target="tbl" fileName="contatti" pageOnly="true" />
+        <p:dataExporter type="pdf" target="tbl" fileName="contatti"  />
     </h:commandLink>
             </p>
             <p:dataTable value="#{listaContatti.getallrecords()}" var= "contatto1" 
@@ -44,6 +44,18 @@
  
                 <p:column filterBy="#{contatto1.email}" headerText="Email"  filterMatchMode="contains">
                      <h:outputText value="#{contatto1.email}" />
+              </p:column>
+                
+                <p:column filterBy="#{contatto1.comuneDiResidenza}" headerText="Comune di Residenza"  filterMatchMode="contains">
+                    <h:outputText value="#{contatto1.comuneDiResidenza}" />
+              </p:column>
+                
+                <p:column filterBy="#{contatto1.sedeDiServizio}" headerText="Sede di servizio"  filterMatchMode="contains">
+                    <h:outputText value="#{contatto1.sedeDiServizio}" />
+              </p:column>
+                
+                <p:column filterBy="#{contatto1.professione}" headerText="Professione"  filterMatchMode="contains">
+                    <h:outputText value="#{contatto1.professione}" />
               </p:column>
             
               <p:column headerText="Azioni" exportable="false">

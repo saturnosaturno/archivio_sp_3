@@ -89,11 +89,16 @@
 
                     </p:column>
 
-                    <p:column headerText="Mansione">
+                    <p:column headerText="Mansione" >
                         <p:inplace id="mansione">
                         <p:inputText value="#{rapporto.mansione}" />
                         </p:inplace>
                     </p:column>
+                
+                <p:column headerText="Azioni">
+                    <p:commandButton id="cancella" value="Cancella" action="#{nuovoContattoBean.deleteRapportoSelezionato(rapporto.id)}" update=":details" />
+              
+             </p:column>
 
                 </p:dataTable>
             

@@ -53,19 +53,7 @@ public class DettaglioContatto implements Serializable{
     }
     
     
-    /*
-     public String aggiornaContatto2 (){
-        ContattiDao contdao = new ContattiDao();
-     //   RapportiDiLavoro rapp = new RapportiDiLavoro();
-      //  rapp.setMansione("----");
-       // rapp.setNomeAzienda("----");
-       // contatto.getRapportiDiLavoros().add(rapp);
-        contdao.updateContatto2(contatto);
-        return "nuovoRapporto";
-    }
-    
-    */
-    
+   
     
     public String inserisciRapporto(){
         
