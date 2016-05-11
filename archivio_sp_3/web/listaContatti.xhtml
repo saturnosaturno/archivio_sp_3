@@ -14,7 +14,7 @@
         <h:form id="listaForm">
             <p align="right">
          <h:commandLink>
-        <p:graphicImage name="/images/excel.png" />
+             <p:graphicImage name="/images/excel3.jpe" width="32" height="32" />
         <p:dataExporter type="xls" target="tbl" fileName="contatti" />
     </h:commandLink>
  
@@ -26,7 +26,7 @@
             <p:dataTable value="#{listaContatti.getallrecords()}" var= "contatto1" 
                          id="tbl" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
-                 paginator="true" rows="10" style="margin-bottom:20px">
+                 paginator="true" rows="10" style="margin-bottom:20px; font-size: 12px;">
                 
                 
                 
@@ -59,13 +59,13 @@
               </p:column>
             
               <p:column headerText="Azioni" exportable="false">
-                   <p:commandButton id="modifica" value="Modifica" action="#{listaContatti.editSelezionato(contatto1.id)}" />
-                   <p:commandButton id="cancella" value="Cancella" action="#{listaContatti.deleteSelezionato(contatto1.id)}" update=":listaForm"  />
+                   <p:commandButton id="modifica" value="Modifica" action="#{listaContatti.editSelezionato(contatto1.id)}" style="font-size:12px;" />
+                   <p:commandButton id="cancella" value="Cancella" style="font-size:12px;" action="#{listaContatti.deleteSelezionato(contatto1.id)}" update=":listaForm"  />
               </p:column>
                     
         </p:dataTable>
             <br/>
-             <p:commandButton id="nuovo" value="Aggiungi" action="#{listaContatti.inserisci()}" />
+            <p:commandButton id="nuovo" value="Aggiungi" action="#{listaContatti.inserisci()}" style="font-size:12px; "/>
             
             
              

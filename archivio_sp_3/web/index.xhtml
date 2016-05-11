@@ -9,11 +9,12 @@
     </h:head>
     <h:body>
         <h1 align="center">Benvenuto</h1>
+        <div align="center">
         <h:form>
-            <h:panelGrid id="grid" columns="3" cellpadding="5">
+            <h:panelGrid id="grid" columns="3" cellpadding="5" >
             <h:outputLabel>Username: </h:outputLabel>
         
-            <p:inputText id="username" value="#{indexBean.username}" required="true" requiredMessage="Username obbligatoria"></p:inputText>
+            <p:inputText id="username" value="#{indexBean.username}" required="true" requiredMessage="Username obbligatoria" ></p:inputText>
             <p:message for="username" /> 
 
             <h:outputLabel>Password: </h:outputLabel>
@@ -25,6 +26,8 @@
            
               
             </h:form>
+            </div>
+           
     </h:body>
         
 </html>

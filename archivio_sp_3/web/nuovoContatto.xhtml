@@ -96,18 +96,18 @@
                     </p:column>
                 
                 <p:column headerText="Azioni">
-                    <p:commandButton id="cancella" value="Cancella" action="#{nuovoContattoBean.deleteRapportoSelezionato(rapporto.id)}" update=":details" />
+                    <p:commandButton id="cancella" value="Cancella" action="#{nuovoContattoBean.deleteRapportoSelezionato(rapporto.id)}" style="font-size:12px;" update=":details" />
               
              </p:column>
 
                 </p:dataTable>
             
-            <p:commandButton value="Inserisci Rapporto di lavoro" action="#{nuovoContattoBean.inserisciRapportoNuovoContatto()}" update=":details" />
+            <p:commandButton value="Inserisci Rapporto di lavoro" action="#{nuovoContattoBean.inserisciRapportoNuovoContatto()}" style="font-size:12px;" update=":details" />
             
             
                  
-            <p:commandButton value="Annulla" action="ListaContatti" immediate="true" />
-            <p:commandButton value="Salva" action="#{nuovoContattoBean.inserisciContatto()}"/>
+            <p:commandButton value="Annulla" action="listaContatti" style="font-size:12px;" immediate="true" />
+            <p:commandButton value="Salva" style="font-size:12px;" action="#{nuovoContattoBean.inserisciContatto()}"/>
             </h:form>
 
     </h:body>

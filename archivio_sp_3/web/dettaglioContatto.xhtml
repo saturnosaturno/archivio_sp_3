@@ -130,19 +130,19 @@
                     </p:column>
              
              <p:column headerText="Azioni">
-                 <p:commandButton id="cancella" value="Cancella" action="#{dettaglioContatto.deleteRapportoSelezionato(rapporto.id)}" update=":details" />
+                 <p:commandButton id="cancella" value="Cancella" action="#{dettaglioContatto.deleteRapportoSelezionato(rapporto.id)}" style="font-size:12px;" update=":details" />
               
              </p:column>
 
                 </p:dataTable>
-            <p:commandButton value="Inserisci Rapporto di lavoro" action="#{dettaglioContatto.inserisciRapporto()}" update=":details" />
+            <p:commandButton value="Inserisci Rapporto di lavoro" action="#{dettaglioContatto.inserisciRapporto()}" style="font-size:12px;" update=":details" />
             
           
             
                
            
-            <p:commandButton value="Salva" onclick="PF('dlg1').show();" action="#{dettaglioContatto.aggiornaContatto()}" />
-            <p:commandButton immediate="true" value="Annulla" action="listaContatti"/>
+            <p:commandButton value="Salva" onclick="PF('dlg1').show();" style="font-size:12px;" action="#{dettaglioContatto.aggiornaContatto()}" />
+            <p:commandButton immediate="true" value="Annulla" style="font-size:12px;" action="listaContatti"/>
            
      
         
@@ -151,7 +151,7 @@
          <p:dialog  widgetVar="dlg1" onShow="myFunction();" onHide="myStopFunction();" >
                 <h:outputText value="Salvataggio effettuato" />
                 <br/>
-                <p:commandButton immediate="true" value="OK" onclick="PF('dlg1')."/>
+                <p:commandButton immediate="true" value="OK" style="font-size:12px;" onclick="PF('dlg1')."/>
             </p:dialog>
         
         
