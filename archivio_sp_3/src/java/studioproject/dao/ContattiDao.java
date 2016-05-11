@@ -403,6 +403,17 @@ public class ContattiDao {
         }
        
          
+        if (!contatto.getRapportiDiLavoros().isEmpty()){
+            
+            try {
+            
+                updateContatto(contatto);
+            }
+            catch (Exception e){
+            System.out.println(e.toString());
+            }
+            
+        }
          
      }
  
