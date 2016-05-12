@@ -296,9 +296,10 @@ public class ContattiDao {
     
     
      public void cancellaContatto(int id){
-        Transaction trans=null;
+         Transaction trans=null;
         Session session=HibernateUtil.getSessionFactory().openSession();
-        
+               
+
         try
         {
             trans=session.beginTransaction();
@@ -327,7 +328,7 @@ public class ContattiDao {
           public void cancellaRapporto(int id){
         Transaction trans=null;
         Session session=HibernateUtil.getSessionFactory().openSession();
-        
+              
         try
         {
             trans=session.beginTransaction();

@@ -98,9 +98,9 @@ public class NuovoContattoBean implements Serializable {
     }
       
       
-          public String tornaIndietro (){
-        
-        return "dettaglioContatto";
+          public String annulla (){
+        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("nuovoContattoBean", null);
+        return "listaContatti";
     }
 
       
@@ -115,7 +115,8 @@ public class NuovoContattoBean implements Serializable {
       
       public String deleteRapportoSelezionato (int id){
        
-       ContattiDao cdao=new ContattiDao();
+        ContattiDao cdao=new ContattiDao();
+        cdao.updateContatto(contatto); 
         cdao.cancellaRapporto(id);
         contatto=cdao.getContatto(contatto.getId());
         return "dettaglioContatto";

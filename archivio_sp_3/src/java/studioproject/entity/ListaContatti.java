@@ -9,6 +9,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import studioproject.dao.ContattiDao;
 
 /**
@@ -90,8 +91,9 @@ public String deleteSelezionato (int id){
 
 public String inserisci (){
         
-      
-        
+      FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("nuovoContattoBean", null);
+        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("contatti", null);
+        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("dettaglioContatto", null);
         return "nuovoContatto";
     }
  
