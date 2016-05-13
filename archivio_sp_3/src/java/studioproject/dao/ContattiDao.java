@@ -20,7 +20,7 @@ import studioproject.util.HibernateUtil;
 
 /**
  *
- * @author Ingegnere
+ * 
  */
 public class ContattiDao {
 
@@ -30,14 +30,14 @@ public class ContattiDao {
     
     public Contatti getContatto(int sno)
     {
-        //Contatto contatto=new Contatto();
+        
         Contatti contatto1=new Contatti();
        
          Transaction trans=null;
          Session session=HibernateUtil.getSessionFactory().openSession();
         try 
         {
-            //sno=1;
+            
             trans=session.beginTransaction();
             Query query=session.createQuery("from Contatti where id= :id");
             query.setInteger("id", sno);

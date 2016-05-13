@@ -14,7 +14,7 @@ import studioproject.util.HibernateUtil;
 
 /**
  *
- * @author Ingegnere
+ *
  */
 public class UtentiDao {
 

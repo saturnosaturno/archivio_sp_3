@@ -16,7 +16,7 @@ import studioproject.util.HibernateUtil;
 
 /**
  *
- * @author Ingegnere
+ * 
  */
 public class TitoliDao {
 
@@ -36,7 +36,6 @@ public class TitoliDao {
         {
             trans=session.beginTransaction();
             Query query=session.createQuery("from TypoTitoliDiStudio");
-           // query.setInteger("id", contatto.getId());
             titoli=query.list();         
             trans.commit();
             

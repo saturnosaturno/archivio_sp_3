@@ -9,10 +9,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import studioproject.dao.ContattiDao;
 
-/**
- *
- * @author dirkgain
- */
+
 
 @ManagedBean
 @SessionScoped
@@ -94,14 +91,7 @@ public class DettaglioContatto implements Serializable{
          
      
  
-    public void destroyWorld() {
-        addMessage("System Error", "Please try again later.");
-    }
-     
-    public void addMessage(String summary, String detail) {
-        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, detail);
-        FacesContext.getCurrentInstance().addMessage(null, message);
-    }
+    
          
     
 }

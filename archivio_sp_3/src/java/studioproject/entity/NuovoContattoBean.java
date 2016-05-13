@@ -15,10 +15,7 @@ import javax.faces.context.FacesContext;
 import studioproject.dao.ContattiDao;
 import studioproject.dao.TitoliDao;
 
-/**
- *
- * @author Ingegnere
- */
+
 @ManagedBean
 @SessionScoped
 public class NuovoContattoBean implements Serializable {

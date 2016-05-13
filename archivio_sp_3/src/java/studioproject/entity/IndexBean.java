@@ -12,10 +12,7 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import studioproject.dao.UtentiDao;
 
-/**
- *
- * @author Ingegnere
- */
+
 
 @ManagedBean
 @RequestScoped
@@ -55,7 +52,7 @@ public class IndexBean implements Serializable {
             FacesContext context = FacesContext.getCurrentInstance();
             context.getExternalContext().getSessionMap().put("utenteBean", utenteBean);
             System.out.println("Utente in sessione: "+ utenteBean.nome + " " + utenteBean.username);
-            listaContatti.setCurrentUserBean(utenteBean);
+            listaContatti.setUsercorrente(utenteBean);
             return "listaContatti";
         }
     return "index";
