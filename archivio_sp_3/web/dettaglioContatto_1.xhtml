@@ -28,31 +28,34 @@
          <p align="center"> <p:graphicImage name="/images/logoSP.jpg"  style="align-items: center"></p:graphicImage>  </p>
         <h:form id="details">
             <h:panelGrid columns="2" columnClasses="column" cellpadding="5">
-                
-                
                 <h:outputLabel for="nome" value="Nome:" />
-                  <p:inputText id="nome" value="#{dettaglioContatto.contatto.nome}" required="true" />
-             
+                <p:inplace id="nome">
+                    <p:inputText value="#{dettaglioContatto.contatto.nome}" required="true" />
+                </p:inplace>
                 
                 <h:outputLabel for="cognome" value="Cognome:" />
-                    <p:inputText id="cognome" value="#{dettaglioContatto.contatto.cognome}" required="true" />
-              
+                <p:inplace id="cognome">
+                    <p:inputText value="#{dettaglioContatto.contatto.cognome}" required="true" />
+                </p:inplace>
                 
                <h:outputLabel for="popup" value="Data di Nascita:" />
                <p:calendar id="popup" value="#{dettaglioContatto.contatto.dataDiNascita}" />
                 
                 
                 <h:outputLabel for="comune_di_residenza" value="Comune di Residenza:" />
-                    <p:inputText id="comune_di_residenza" value="#{dettaglioContatto.contatto.comuneDiResidenza}" />
-               
+                <p:inplace id="comune_di_residenza">
+                    <p:inputText value="#{dettaglioContatto.contatto.comuneDiResidenza}" />
+                </p:inplace>
                 
                 <h:outputLabel for="indirizzo" value="Indirizzo:" />
-                    <p:inputText id="indirizzo" value="#{dettaglioContatto.contatto.indirizzo}" />
-                
+                <p:inplace id="indirizzo">
+                    <p:inputText value="#{dettaglioContatto.contatto.indirizzo}" />
+                </p:inplace>
                 
                  <h:outputLabel for="cap" value="CAP: " />
-                    <p:inputText id="cap" value="#{dettaglioContatto.contatto.cap}" />
-                
+                <p:inplace id="cap">
+                    <p:inputText value="#{dettaglioContatto.contatto.cap}" />
+                </p:inplace>
                 
                  <h:outputLabel for="provincia" value="Provincia: " />
                 <p:inplace id="provincia">
@@ -60,35 +63,43 @@
                 </p:inplace>
                 
                   <h:outputLabel for="telefono" value="Telefono: " />
-             
-                    <p:inputText id="telefono" value="#{dettaglioContatto.contatto.telefono}" />
-               
+                <p:inplace id="telefono">
+                    <p:inputText value="#{dettaglioContatto.contatto.telefono}" />
+                </p:inplace>
                  
                  
                   <h:outputLabel for="cellulare" value="Cellulare: " />
-                    <p:inputText   id="cellulare" value="#{dettaglioContatto.contatto.cellulare}" />
-                
+                <p:inplace id="cellulare">
+                    <p:inputText value="#{dettaglioContatto.contatto.cellulare}" />
+                </p:inplace>
                   
                    <h:outputLabel for="email" value="Email: " />
-                    <p:inputText id="email" value="#{dettaglioContatto.contatto.email}" />
-               
+                <p:inplace id="email">
+                    <p:inputText value="#{dettaglioContatto.contatto.email}" />
+                </p:inplace>
                    
                     <h:outputLabel for="professione" value="Professione: " />
-                    <p:inputText id="professione"  value="#{dettaglioContatto.contatto.professione}" />
-               
+                <p:inplace id="professione">
+                    <p:inputText value="#{dettaglioContatto.contatto.professione}" />
+                </p:inplace>
                     
-                     <h:outputLabel for="sede_di_servizio" value="Sede di lavoro: " />
-                    <p:inputText id="sede_di_servizio" value="#{dettaglioContatto.contatto.sedeDiServizio}" />
-                
+                     <h:outputLabel for="sede_di_servizio" value="Sede di servizio: " />
+                <p:inplace id="sede_di_servizio">
+                    <p:inputText value="#{dettaglioContatto.contatto.sedeDiServizio}" />
+                </p:inplace>
                      
                       <h:outputLabel for="materia" value="Materia: " />
-                    <p:inputText id="materia" value="#{dettaglioContatto.contatto.materia}" />
-                
+                <p:inplace id="materia">
+                    <p:inputText value="#{dettaglioContatto.contatto.materia}" />
+                </p:inplace>
                   
                        <h:outputLabel for="note" value="Note: " />
-                    <p:inputText id="note" value="#{dettaglioContatto.contatto.note}" />
-               
+                <p:inplace id="note">
+                    <p:inputText value="#{dettaglioContatto.contatto.note}" />
+                </p:inplace>
                       
+                        
+               
          
                 <h:outputLabel for="typo_titoli_di_studio" value="Titolo di studio: " />
               <p:selectOneMenu id="typo_titoli_di_studio"  value="#{dettaglioContatto.contatto.typoTitoliDiStudio.id}" >

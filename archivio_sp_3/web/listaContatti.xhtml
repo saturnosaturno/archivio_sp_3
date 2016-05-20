@@ -51,12 +51,16 @@
                     <h:outputText value="#{contatto1.comuneDiResidenza}" />
               </p:column>
                 
-                <p:column filterBy="#{contatto1.sedeDiServizio}" headerText="Sede di servizio"  filterMatchMode="contains">
+                <p:column filterBy="#{contatto1.sedeDiServizio}" headerText="Sede di lavoro"  filterMatchMode="contains">
                     <h:outputText value="#{contatto1.sedeDiServizio}" />
               </p:column>
                 
                 <p:column filterBy="#{contatto1.professione}" headerText="Professione"  filterMatchMode="contains">
                     <h:outputText value="#{contatto1.professione}" />
+              </p:column>
+                
+                <p:column filterBy="#{contatto1.note}" headerText="Note"  filterMatchMode="contains">
+                    <h:outputText value="#{contatto1.note}" />
               </p:column>
             
               <p:column headerText="Azioni" exportable="false">
