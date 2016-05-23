@@ -77,7 +77,7 @@
                     <p:inputText id="professione"  value="#{dettaglioContatto.contatto.professione}" />
                
                     
-                     <h:outputLabel for="sede_di_servizio" value="Sede di lavoro: " />
+                     <h:outputLabel for="sede_di_servizio" value="Sede lavorativa: " />
                     <p:inputText id="sede_di_servizio" value="#{dettaglioContatto.contatto.sedeDiServizio}" />
                 
                      
@@ -104,7 +104,22 @@
                 <br/>
                    </h:panelGrid> 
 
-         <p:dataTable id="rapportidl" var="rapporto" value="#{dettaglioContatto.contatto.rapportiDiLavoros}">
+            
+            
+                      <h:outputLabel for="az" value="Azienda: " />
+                      <p:inputText id="az" value="#{rapporto.nomeAzienda}" />
+          
+                      <h:outputLabel for="mans" value="Mansione: " />
+                      <p:inputText id="mans" value="#{rapporto.mansione}" />
+
+                      <p:commandButton value="Cerca" action="#{dettaglioContatto.filtraRapporti()}" style="font-size:12px;" />
+
+
+                      
+                      
+                   <p:dataTable id="rapportidl" var="rapporto" value="#{dettaglioContatto.contatto.rapportiDiLavoros}">
+              
+                        
                     <p:column headerText="Azienda" >
 
                         <p:inplace id="azienda">

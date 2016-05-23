@@ -30,15 +30,15 @@
                  paginator="true" rows="10" style="margin-bottom:20px; font-size: 12px;">
                 
                 
+                 <p:column filterBy="#{contatto1.cognome}" headerText="Cognome"   filterMatchMode="contains">
+                  <h:outputText value="#{contatto1.cognome}" />
+              </p:column>
                 
                 <p:column filterBy="#{contatto1.nome}" headerText="Nome" filterMatchMode="contains" >
                   <h:outputText value="#{contatto1.nome}" />
                </p:column>
  
-                <p:column filterBy="#{contatto1.cognome}" headerText="Cognome"   filterMatchMode="contains">
-                  <h:outputText value="#{contatto1.cognome}" />
-              </p:column>
- 
+                
                 <p:column filterBy="#{contatto1.cellulare}" headerText="Cellulare"  filterMatchMode="contains">
                      <h:outputText value="#{contatto1.cellulare}" />
               </p:column>

@@ -86,7 +86,9 @@ public class DettaglioContatto implements Serializable{
         return "dettaglioContatto";
     }
       
-     
+     public void filtraRapporti(){
+         
+     }
          
          
      
