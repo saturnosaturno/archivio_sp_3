@@ -105,17 +105,7 @@
                    </h:panelGrid> 
 
             
-            
-                      <h:outputLabel for="az" value="Azienda: " />
-                      <p:inputText id="az" value="#{rapporto.nomeAzienda}" />
-          
-                      <h:outputLabel for="mans" value="Mansione: " />
-                      <p:inputText id="mans" value="#{rapporto.mansione}" />
 
-                      <p:commandButton value="Cerca" action="#{dettaglioContatto.filtraRapporti()}" style="font-size:12px;" />
-
-
-                      
                       
                    <p:dataTable id="rapportidl" var="rapporto" value="#{dettaglioContatto.contatto.rapportiDiLavoros}">
               

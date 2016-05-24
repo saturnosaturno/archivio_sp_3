@@ -24,42 +24,57 @@
         <p:dataExporter type="pdf" target="tbl" fileName="contatti"  />
     </h:commandLink>
             </p>
+            
+             <h:outputLabel for="prof" value="Professione: " />
+            <p:inputText id="prof" />
+            
+            <h:outputLabel for="az" value="Azienda: " />
+            <p:inputText id="az" />
+
+            <h:outputLabel for="mans" value="Mansione: " />
+            <p:inputText id="mans" />
+
+            <p:commandButton value="Cerca" style="font-size:12px;" />
+
+         <br/>
+         <br/>
+            
             <p:dataTable value="#{listaContatti.getallrecords()}" var= "contatto1" 
                          id="tbl" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
-                 paginator="true" rows="10" style="margin-bottom:20px; font-size: 12px;">
+                 paginator="true" rows="10" style="margin-bottom:20px; font-size: 12px;" sortMode="multiple">
                 
                 
-                 <p:column filterBy="#{contatto1.cognome}" headerText="Cognome"   filterMatchMode="contains">
+                <p:column filterBy="#{contatto1.cognome}" headerText="Cognome"   filterMatchMode="contains" sortBy="#{contatto1.cognome}">
                   <h:outputText value="#{contatto1.cognome}" />
               </p:column>
                 
-                <p:column filterBy="#{contatto1.nome}" headerText="Nome" filterMatchMode="contains" >
+                <p:column filterBy="#{contatto1.nome}" headerText="Nome" filterMatchMode="contains" sortBy="#{contatto1.nome}" >
                   <h:outputText value="#{contatto1.nome}" />
                </p:column>
  
                 
-                <p:column filterBy="#{contatto1.cellulare}" headerText="Cellulare"  filterMatchMode="contains">
+                <p:column filterBy="#{contatto1.cellulare}" headerText="Cellulare"  filterMatchMode="contains" sortBy="#{contatto1.cellulare}">
                      <h:outputText value="#{contatto1.cellulare}" />
               </p:column>
  
-                <p:column filterBy="#{contatto1.email}" headerText="Email"  filterMatchMode="contains">
+                <p:column filterBy="#{contatto1.email}" headerText="Email"  filterMatchMode="contains" sortBy="#{contatto1.email}">
                      <h:outputText value="#{contatto1.email}" />
               </p:column>
                 
-                <p:column filterBy="#{contatto1.comuneDiResidenza}" headerText="Comune di Residenza"  filterMatchMode="contains">
+                <p:column filterBy="#{contatto1.comuneDiResidenza}" headerText="Comune di Residenza"  filterMatchMode="contains" sortBy="#{contatto1.comuneDiResidenza}">
                     <h:outputText value="#{contatto1.comuneDiResidenza}" />
               </p:column>
                 
-                <p:column filterBy="#{contatto1.sedeDiServizio}" headerText="Sede di lavoro"  filterMatchMode="contains">
+                <p:column filterBy="#{contatto1.sedeDiServizio}" headerText="Sede di lavoro"  filterMatchMode="contains" sortBy="#{contatto1.sedeDiServizio}">
                     <h:outputText value="#{contatto1.sedeDiServizio}" />
               </p:column>
                 
-                <p:column filterBy="#{contatto1.professione}" headerText="Professione"  filterMatchMode="contains">
+                <p:column filterBy="#{contatto1.professione}" headerText="Professione"  filterMatchMode="contains" sortBy="#{contatto1.professione}">
                     <h:outputText value="#{contatto1.professione}" />
               </p:column>
                 
-                <p:column filterBy="#{contatto1.note}" headerText="Note"  filterMatchMode="contains">
+                <p:column filterBy="#{contatto1.note}" headerText="Note"  filterMatchMode="contains" sortBy="#{contatto1.note}">
                     <h:outputText value="#{contatto1.note}" />
               </p:column>
             
