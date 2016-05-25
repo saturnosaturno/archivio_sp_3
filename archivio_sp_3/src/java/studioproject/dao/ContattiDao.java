@@ -85,6 +85,39 @@ public class ContattiDao {
     
     
     
+    public List<Contatti> retrieveContattiFiltrati(String filtroAzienda,String filtroMansione, String filtroProfessione)
+    {
+       
+        List cont=new ArrayList();
+        Contatti cont1=new Contatti();
+        Transaction trans=null;
+        Session session=HibernateUtil.getSessionFactory().openSession();
+        try
+        {
+            trans=session.beginTransaction();
+            Query query=session.createQuery("from Contatti WHERE professione = :filtroProfessione");
+          // Query query=session.createQuery("from Contatti c LEFT JOIN RapportiDiLavoro r ON c.id=r.contatti_id WHERE professione = :filtroProfessione AND mansione = :filtroMansione AND filtroAzienda = :nomeAzienda");            
+           // Query query=session.createQuery("from Contatti c LEFT JOIN FETCH RapportiDiLavoro r ON c.id=r.contatti_id WHERE filtroAzienda = :nomeAzienda");            
+
+            query.setString("filtroProfessione", filtroProfessione);
+           // query.setString("filtroMansione", filtroMansione);
+            //query.setString("filtroAzienda", filtroAzienda);
+            cont=query.list();
+            
+         
+            trans.commit();
+            
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.toString());
+        }
+        return cont;
+    }
+    
+    
+    
+    
     
     public void updateContatto(Contatti contatto){
         Transaction trans=null;

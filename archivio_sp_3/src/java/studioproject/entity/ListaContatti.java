@@ -14,14 +14,18 @@ import studioproject.dao.ContattiDao;
 
 
 
-@ManagedBean
+@ManagedBean(name = "listaContatti")
 @SessionScoped
 public class ListaContatti implements java.io.Serializable {
 
    @ManagedProperty("#{dettaglioContatto}")
    private DettaglioContatto dettaglioContatto;
     
-      
+    
+   @ManagedProperty("#{listaContattiFiltrati}")
+   private ListaContattiFiltrati contattiFiltrati;
+   
+   
    CurrentUserBean usercorrente;
    
 
@@ -34,6 +38,14 @@ public class ListaContatti implements java.io.Serializable {
 
     public void setDettaglioContatto(DettaglioContatto dettaglioContatto) {
         this.dettaglioContatto = dettaglioContatto;
+    }
+
+    public ListaContattiFiltrati getContattiFiltrati() {
+        return contattiFiltrati;
+    }
+
+    public void setContattiFiltrati(ListaContattiFiltrati contattiFiltrati) {
+        this.contattiFiltrati = contattiFiltrati;
     }
 
    
@@ -49,6 +61,8 @@ public class ListaContatti implements java.io.Serializable {
     return cont;
 }
     
+    
+ 
     
  public String editSelezionato (int id){
         

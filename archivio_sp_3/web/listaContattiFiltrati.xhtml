@@ -25,21 +25,12 @@
     </h:commandLink>
             </p>
             
-             <h:outputLabel for="prof" value="Professione: " />
-             <p:inputText id="prof" value="#{listaContattiFiltrati.filtroProfessione}" />
             
-            <h:outputLabel for="az" value="Azienda: " />
-            <p:inputText id="az" value="#{listaContattiFiltrati.filtroAzienda}" />
-
-            <h:outputLabel for="mans" value="Mansione: "  />
-            <p:inputText id="mans" value="#{listaContattiFiltrati.filtroMansione}" />
-
-            <p:commandButton value="Cerca" style="font-size:12px;" action="listaContattiFiltrati" />
 
          <br/>
          <br/>
             
-            <p:dataTable value="#{listaContatti.getallrecords()}" var= "contatto1" 
+         <p:dataTable value="#{listaContattiFiltrati.allrecordsfiltered}" var= "contatto1" 
                          id="tbl" 
                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
                  paginator="true" rows="10" style="margin-bottom:20px; font-size: 12px;" sortMode="multiple">
@@ -85,7 +76,7 @@
                     
         </p:dataTable>
             <br/>
-            <p:commandButton id="nuovo" value="Aggiungi" action="#{listaContatti.inserisci()}" style="font-size:12px; "/>
+            <p:commandButton id="nuovo" value="Indietro" action="listaContatti" style="font-size:12px; "/>
             
             
              
