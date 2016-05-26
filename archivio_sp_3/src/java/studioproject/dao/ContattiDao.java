@@ -9,10 +9,13 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.CriteriaSpecification;
 import org.hibernate.criterion.Example;
+import org.hibernate.criterion.Restrictions;
 import studioproject.entity.Contatti;
 import studioproject.entity.RapportiDiLavoro;
 import studioproject.entity.TypoTitoliDiStudio;
@@ -138,11 +141,23 @@ public class ContattiDao {
           // Query query=session.createQuery("from Contatti c LEFT JOIN RapportiDiLavoro r ON c.id=r.contatti_id WHERE professione = :filtroProfessione AND mansione = :filtroMansione AND filtroAzienda = :nomeAzienda");            
           //  Query query=session.createQuery("from Contatti c INNER JOIN FETCH RapportiDiLavoro r ON c.id=r.contatti_id WHERE filtroAzienda = :nome_azienda");            
             
-            Contatti contatto = new Contatti();
-            contatto.setProfessione(filtroProfessione+"%");
+          Contatti contatto = new Contatti();
+          RapportiDiLavoro rapp = new RapportiDiLavoro();
+          rapp.setMansione(filtroMansione + "%");
+          rapp.setNomeAzienda(filtroAzienda + "%");
+          if (filtroAzienda.isEmpty() && filtroMansione.isEmpty()){
+                        contatto.setProfessione(filtroProfessione+"%");
+                        cont = session.createCriteria(Contatti.class).add(Example.create(contatto).enableLike()).list();
+          }
+          else
+          {
+           contatto.setProfessione(filtroProfessione+"%");	
+           Criteria query = session.createCriteria(Contatti.class); 
           
-            cont = session.createCriteria(Contatti.class).add(Example.create(contatto).enableLike()).list();
-            
+           query.createCriteria("rapportiDiLavoros", "r", CriteriaSpecification.LEFT_JOIN).add(Example.create(rapp).enableLike());
+          // query.add(Example.create(contatto).enableLike());
+           cont=query.list();
+          }
             System.out.println("Sto nel retrive2");
             
             //query.setString("filtroProfessione", filtroProfessione);
@@ -158,7 +173,8 @@ public class ContattiDao {
         {
             System.out.println(e.toString());
         }
-        return cont;
+       return cont;
+     
     }
     
     
