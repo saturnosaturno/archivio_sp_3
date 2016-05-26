@@ -137,10 +137,7 @@ public class ContattiDao {
         try
         {
             trans=session.beginTransaction();
-            //Query query=session.createQuery("from Contatti WHERE professione = :filtroProfessione");
-          // Query query=session.createQuery("from Contatti c LEFT JOIN RapportiDiLavoro r ON c.id=r.contatti_id WHERE professione = :filtroProfessione AND mansione = :filtroMansione AND filtroAzienda = :nomeAzienda");            
-          //  Query query=session.createQuery("from Contatti c INNER JOIN FETCH RapportiDiLavoro r ON c.id=r.contatti_id WHERE filtroAzienda = :nome_azienda");            
-            
+           
           Contatti contatto = new Contatti();
           RapportiDiLavoro rapp = new RapportiDiLavoro();
           rapp.setMansione(filtroMansione + "%");
