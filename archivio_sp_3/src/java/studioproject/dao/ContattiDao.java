@@ -12,6 +12,7 @@ import java.util.Set;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Example;
 import studioproject.entity.Contatti;
 import studioproject.entity.RapportiDiLavoro;
 import studioproject.entity.TypoTitoliDiStudio;
@@ -95,13 +96,17 @@ public class ContattiDao {
         try
         {
             trans=session.beginTransaction();
-            Query query=session.createQuery("from Contatti WHERE professione = :filtroProfessione");
+            //Query query=session.createQuery("from Contatti WHERE professione = :filtroProfessione");
           // Query query=session.createQuery("from Contatti c LEFT JOIN RapportiDiLavoro r ON c.id=r.contatti_id WHERE professione = :filtroProfessione AND mansione = :filtroMansione AND filtroAzienda = :nomeAzienda");            
-           // Query query=session.createQuery("from Contatti c LEFT JOIN FETCH RapportiDiLavoro r ON c.id=r.contatti_id WHERE filtroAzienda = :nomeAzienda");            
-
-            query.setString("filtroProfessione", filtroProfessione);
+            Query query=session.createQuery("from Contatti c INNER JOIN FETCH RapportiDiLavoro r ON c.id=r.contatti_id WHERE filtroAzienda = :nome_azienda");            
+            
+           
+            
+            
+            
+            //query.setString("filtroProfessione", filtroProfessione);
            // query.setString("filtroMansione", filtroMansione);
-            //query.setString("filtroAzienda", filtroAzienda);
+            query.setString("filtroAzienda", filtroAzienda);
             cont=query.list();
             
          
@@ -114,6 +119,58 @@ public class ContattiDao {
         }
         return cont;
     }
+    
+    
+    
+    
+     public List<Contatti> retrieveContattiFiltrati2(String filtroAzienda,String filtroMansione, String filtroProfessione)
+    {
+       
+        List cont=new ArrayList();
+        
+        //Contatti cont1=new Contatti();
+        Transaction trans=null;
+        Session session=HibernateUtil.getSessionFactory().openSession();
+        try
+        {
+            trans=session.beginTransaction();
+            //Query query=session.createQuery("from Contatti WHERE professione = :filtroProfessione");
+          // Query query=session.createQuery("from Contatti c LEFT JOIN RapportiDiLavoro r ON c.id=r.contatti_id WHERE professione = :filtroProfessione AND mansione = :filtroMansione AND filtroAzienda = :nomeAzienda");            
+          //  Query query=session.createQuery("from Contatti c INNER JOIN FETCH RapportiDiLavoro r ON c.id=r.contatti_id WHERE filtroAzienda = :nome_azienda");            
+            
+            Contatti contatto = new Contatti();
+            contatto.setProfessione(filtroProfessione+"%");
+          
+            cont = session.createCriteria(Contatti.class).add(Example.create(contatto).enableLike()).list();
+            
+            System.out.println("Sto nel retrive2");
+            
+            //query.setString("filtroProfessione", filtroProfessione);
+           // query.setString("filtroMansione", filtroMansione);
+           // query.setString("filtroAzienda", filtroAzienda);
+           // cont=query.list();
+            
+         
+            trans.commit();
+            
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.toString());
+        }
+        return cont;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     

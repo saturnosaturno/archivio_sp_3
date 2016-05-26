@@ -52,7 +52,7 @@ public class ListaContattiFiltrati {
          public List<Contatti> getallrecordsfiltered() {
         ContattiDao cdao = new ContattiDao();
              System.out.println("sono nel getallrecordfiltered");
-        List<Contatti> cont = cdao.retrieveContattiFiltrati(filtroAzienda, filtroMansione, filtroProfessione);
+        List<Contatti> cont = cdao.retrieveContattiFiltrati2(filtroAzienda, filtroMansione, filtroProfessione);
         return cont;
     }
     
