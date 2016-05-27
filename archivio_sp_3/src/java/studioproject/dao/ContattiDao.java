@@ -71,10 +71,7 @@ public class ContattiDao {
             trans=session.beginTransaction();
             Query query=session.createQuery("from Contatti");
             cont=query.list();
-           // cont.add(cont1.getNome());
-         //   cont.add(cont1.getCognome());
-         //   cont.add(cont1.getCellulare());
-         //   cont.add(cont1.getEmail());
+       
          
             trans.commit();
             
@@ -88,50 +85,14 @@ public class ContattiDao {
     
     
     
+   
     
-    public List<Contatti> retrieveContattiFiltrati(String filtroAzienda,String filtroMansione, String filtroProfessione)
+    
+     public List<Contatti> retrieveContattiFiltrati(String filtroAzienda,String filtroMansione, String filtroProfessione)
     {
        
         List cont=new ArrayList();
-        Contatti cont1=new Contatti();
-        Transaction trans=null;
-        Session session=HibernateUtil.getSessionFactory().openSession();
-        try
-        {
-            trans=session.beginTransaction();
-            //Query query=session.createQuery("from Contatti WHERE professione = :filtroProfessione");
-          // Query query=session.createQuery("from Contatti c LEFT JOIN RapportiDiLavoro r ON c.id=r.contatti_id WHERE professione = :filtroProfessione AND mansione = :filtroMansione AND filtroAzienda = :nomeAzienda");            
-            Query query=session.createQuery("from Contatti c INNER JOIN FETCH RapportiDiLavoro r ON c.id=r.contatti_id WHERE filtroAzienda = :nome_azienda");            
-            
-           
-            
-            
-            
-            //query.setString("filtroProfessione", filtroProfessione);
-           // query.setString("filtroMansione", filtroMansione);
-            query.setString("filtroAzienda", filtroAzienda);
-            cont=query.list();
-            
-         
-            trans.commit();
-            
-        }
-        catch(Exception e)
-        {
-            System.out.println(e.toString());
-        }
-        return cont;
-    }
-    
-    
-    
-    
-     public List<Contatti> retrieveContattiFiltrati2(String filtroAzienda,String filtroMansione, String filtroProfessione)
-    {
        
-        List cont=new ArrayList();
-        
-        //Contatti cont1=new Contatti();
         Transaction trans=null;
         Session session=HibernateUtil.getSessionFactory().openSession();
         try
@@ -152,16 +113,11 @@ public class ContattiDao {
            Criteria query = session.createCriteria(Contatti.class); 
           
            query.createCriteria("rapportiDiLavoros", "r", CriteriaSpecification.LEFT_JOIN).add(Example.create(rapp).enableLike());
-          // query.add(Example.create(contatto).enableLike());
+         
            cont=query.list();
           }
-            System.out.println("Sto nel retrive2");
-            
-            //query.setString("filtroProfessione", filtroProfessione);
-           // query.setString("filtroMansione", filtroMansione);
-           // query.setString("filtroAzienda", filtroAzienda);
-           // cont=query.list();
-            
+        
+       
          
             trans.commit();
             
@@ -173,15 +129,6 @@ public class ContattiDao {
        return cont;
      
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -285,11 +232,11 @@ public class ContattiDao {
         RapportiDiLavoro rdl = new RapportiDiLavoro();
         rdl.setMansione("---");
         rdl.setNomeAzienda("---");
-        //rdl.getContatti().getRapportiDiLavoros().add(rdl);
+      
         rdl.setContatti(contatto);
         contatto.getRapportiDiLavoros().add(rdl);
         session.save(rdl);
-       // session.save(contatto);
+     
         System.out.println("Save effettuato");
         session.getTransaction().commit();
         
@@ -339,11 +286,11 @@ public class ContattiDao {
         RapportiDiLavoro rdl = new RapportiDiLavoro();
         rdl.setMansione("---");
         rdl.setNomeAzienda("---");
-        //rdl.getContatti().getRapportiDiLavoros().add(rdl);
+   
         rdl.setContatti(contatto);
         contatto.getRapportiDiLavoros().add(rdl);
         session.save(rdl);
-       // session.save(contatto);
+       
         System.out.println("Save effettuato");
         session.getTransaction().commit();
         
@@ -469,7 +416,7 @@ public class ContattiDao {
         {
             trans=session.beginTransaction();
             Query query=session.createQuery("from TypoTitoliDiStudio");
-           // query.setInteger("id", contatto.getId());
+           
             titoli=query.list();         
             trans.commit();
             
@@ -495,10 +442,9 @@ public class ContattiDao {
             ut.setId(1);
             contatto.setUtenti(ut);
             session.save(contatto);
-         // int result = query.executeUpdate();
-        //  System.out.println("Rows affected: " + result);
+       
             session.getTransaction().commit();
-           // trans.commit();
+         
            
         }
         catch(Exception e)
