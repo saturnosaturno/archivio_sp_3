@@ -36,7 +36,7 @@ public class DettaglioContatto implements Serializable{
         ContattiDao contdao = new ContattiDao();
         contdao.updateContatto(contatto);
         System.out.println("Ho aggiornato il contatto nuovo");
-        
+        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("listaContattiFiltrati", null);
         return "listaContatti";
     }
     
@@ -82,8 +82,8 @@ public class DettaglioContatto implements Serializable{
       
       
          public String tornaIndietro (){
-        
-        return "dettaglioContatto";
+        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("listaContattiFiltrati", null);
+        return "listaContatti";
     }
       
      public void filtraRapporti(){
